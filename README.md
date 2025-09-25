@@ -306,6 +306,7 @@ This fork of Codex supports multiple AI providers:
 - openrouter
 - ollama
 - xai
+- siliconflow
 
 To use a different provider, set the `provider` key in your config file:
 
@@ -319,18 +320,20 @@ OR use the `--provider` flag. eg. `codex --provider gemini`
 
 Here's a list of all the providers and their default models:
 
-| Provider   | Environment Variable Required | Default Agentic Model        | Default Full Context Model |
-| ---------- | ----------------------------- | ---------------------------- | -------------------------- |
-| openai     | OPENAI_API_KEY                | o4-mini                      | o3                         |
-| gemini     | GOOGLE_GENERATIVE_AI_API_KEY  | gemini-2.5-pro-preview-03-25 | gemini-2.0-flash           |
-| openrouter | OPENROUTER_API_KEY            | openai/o4-mini               | openai/o3                  |
-| ollama     | Not required                  | User must specify            | User must specify          |
-| xai        | XAI_API_KEY                   | grok-3-mini-beta             | grok-3-beta                |
+| Provider    | Environment Variable Required | Default Agentic Model        | Default Full Context Model |
+| ----------- | ----------------------------- | ---------------------------- | -------------------------- |
+| openai      | OPENAI_API_KEY                | o4-mini                      | o3                         |
+| gemini      | GOOGLE_GENERATIVE_AI_API_KEY  | gemini-2.5-pro-preview-03-25 | gemini-2.0-flash           |
+| openrouter  | OPENROUTER_API_KEY            | openai/o4-mini               | openai/o3                  |
+| ollama      | Not required                  | User must specify            | User must specify          |
+| xai         | XAI_API_KEY                   | grok-3-mini-beta             | grok-3-beta                |
+| siliconflow | SILICONFLOW_API_KEY           | deepseek-ai/DeepSeek-R1      | deepseek-ai/DeepSeek-R1    |
 
 #### When using an alternative provider, make sure you have the correct environment variables set.
 
 ```bash
 export GOOGLE_GENERATIVE_AI_API_KEY="your-gemini-api-key-here"
+export SILICONFLOW_API_KEY="your-siliconflow-api-key-here"
 ```
 
 ---
