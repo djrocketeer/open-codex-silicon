@@ -117,10 +117,13 @@ export function reportMissingAPIKeyForProvider(provider: string): void {
             )} for Google Gemini models\n`;
           case "xai":
             return `- ${chalk.bold("XAI_API_KEY")} for xAI models\n`;
+          case "siliconflow":
+            return `- ${chalk.bold("SILICONFLOW_API_KEY")} for SiliconFlow models\n`;
           default:
             return (
               [
                 `- ${chalk.bold("OPENAI_API_KEY")} for OpenAI models`,
+                `- ${chalk.bold("SILICONFLOW_API_KEY")} for SiliconFlow models`,
                 `- ${chalk.bold("OPENROUTER_API_KEY")} for OpenRouter models`,
                 `- ${chalk.bold(
                   "GOOGLE_GENERATIVE_AI_API_KEY",
@@ -148,6 +151,10 @@ export function reportMissingAPIKeyForProvider(provider: string): void {
           case "xai":
             return `You can create an xAI key here: ${chalk.bold(
               chalk.underline("https://console.x.ai/team/default/api-keys"),
+            )}\n`;
+          case "siliconflow":
+            return `You can create a SiliconFlow key here: ${chalk.bold(
+              chalk.underline("https://cloud.siliconflow.cn/"),
             )}\n`;
           default:
             return "";
