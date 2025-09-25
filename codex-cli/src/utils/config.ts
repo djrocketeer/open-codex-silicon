@@ -141,6 +141,7 @@ function defaultModelsForProvider(provider: string): {
         fullContext: "grok-3-beta",
       };
     case "siliconflow":
+      // Supported models include: deepseek-ai/DeepSeek-R1, moonshotai/Kimi-K2-Instruct-0905
       return {
         agentic: "deepseek-ai/DeepSeek-R1",
         fullContext: "deepseek-ai/DeepSeek-R1",
