@@ -331,9 +331,18 @@ Here's a list of all the providers and their default models:
 
 #### When using an alternative provider, make sure you have the correct environment variables set.
 
+For SiliconFlow, the following models are supported:
+- deepseek-ai/DeepSeek-R1 (default)
+- moonshotai/Kimi-K2-Instruct-0905
+
+To use a specific model with SiliconFlow, set it in your config or use the `--model` flag:
 ```bash
-export GOOGLE_GENERATIVE_AI_API_KEY="your-gemini-api-key-here"
+# Set environment variable for SiliconFlow
 export SILICONFLOW_API_KEY="your-siliconflow-api-key-here"
+
+# Use a specific model
+codex --provider siliconflow --model moonshotai/Kimi-K2-Instruct-0905 "Your prompt here"
+```
 ```
 
 ---
