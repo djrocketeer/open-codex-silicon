@@ -38,7 +38,9 @@ export let API_KEY = "";
 
 // Gracefully fallback to a provider if we have a missing API key.
 if (!process.env["OPENAI_API_KEY"]) {
-  if (process.env["GOOGLE_GENERATIVE_AI_API_KEY"]) {
+  if (process.env["SILICONFLOW_API_KEY"]) {
+    DEFAULT_PROVIDER = "siliconflow";
+  } else if (process.env["GOOGLE_GENERATIVE_AI_API_KEY"]) {
     DEFAULT_PROVIDER = "gemini";
   } else if (process.env["OPENROUTER_API_KEY"]) {
     DEFAULT_PROVIDER = "openrouter";
@@ -80,6 +82,13 @@ function getAPIKeyForProviderOrExit(provider: string): string {
       reportMissingAPIKeyForProvider(provider);
       process.exit(1);
       break;
+    case "siliconflow":
+      if (process.env["SILICONFLOW_API_KEY"]) {
+        return process.env["SILICONFLOW_API_KEY"];
+      }
+      reportMissingAPIKeyForProvider(provider);
+      process.exit(1);
+      break;
     default:
       reportMissingAPIKeyForProvider("");
       process.exit(1);
@@ -98,6 +107,8 @@ function baseURLForProvider(provider: string): string {
       return "https://openrouter.ai/api/v1";
     case "xai":
       return "https://api.x.ai/v1";
+    case "siliconflow":
+      return "https://api.siliconflow.cn/v1";
     default:
       // TODO throw?
       return "";
@@ -128,6 +139,11 @@ function defaultModelsForProvider(provider: string): {
       return {
         agentic: "grok-3-mini-beta",
         fullContext: "grok-3-beta",
+      };
+    case "siliconflow":
+      return {
+        agentic: "deepseek-ai/DeepSeek-R1",
+        fullContext: "deepseek-ai/DeepSeek-R1",
       };
     default:
       return {
